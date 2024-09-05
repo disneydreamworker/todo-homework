@@ -2,7 +2,7 @@
 .gitignore
 .idea
 
-/src/main/java/com/ssg/dao/ConnectionUtil
+/src/main/java/com/ssg/dao/ConnectionUtill.java
 
 build/
 !gradle/wrapper/gradle-wrapper.jar
