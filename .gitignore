@@ -2,6 +2,8 @@
 .gitignore
 .idea
 
+/src/main/java/com/ssg/dao/ConnectionUtil
+
 build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
