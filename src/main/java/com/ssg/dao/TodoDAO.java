@@ -39,7 +39,7 @@ public class TodoDAO {
         return todoVOS;
     }
 
-    private TodoVO selectOne(long tno) throws Exception {
+    public TodoVO selectOne(long tno) throws Exception {
         //10개의 글을 만들어서 글 전체의 리스트 객체를 반환함
         String sql = "select * from tbl_todo where tno = ?";
         @Cleanup Connection connection = ConnectionUtill.INSTANCE.getConnection();
@@ -48,15 +48,15 @@ public class TodoDAO {
         @Cleanup ResultSet rs = psmt.executeQuery();
 
         rs.next();
-        TodoVO todoVO = TodoVO.builder()
+        return TodoVO.builder()
                 .tno(rs.getLong("tno"))
                 .title(rs.getString("title"))
                 .dueDate(rs.getDate("dueDate").toLocalDate())
                 .finished(rs.getBoolean("finished")).build();
-        return todoVO;
+
     }
 
-    private void deleteOne(Long tno) throws Exception{
+    public void deleteOne(Long tno) throws Exception{
         String sql = "delete from tbl_todo where tno = ?";
         @Cleanup Connection connection = ConnectionUtill.INSTANCE.getConnection();
         @Cleanup PreparedStatement psmt = connection.prepareStatement(sql);
@@ -64,7 +64,7 @@ public class TodoDAO {
         psmt.executeUpdate();
     }
 
-    private void updateOne(TodoVO vo) throws Exception{
+    public void updateOne(TodoVO vo) throws Exception{
         String sql = "update tbl_todo set title = ?, dueDate = ?, finished = ? where tno = ?";
         @Cleanup Connection connection = ConnectionUtill.INSTANCE.getConnection();
         @Cleanup PreparedStatement psmt = connection.prepareStatement(sql);

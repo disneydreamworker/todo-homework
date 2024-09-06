@@ -19,7 +19,7 @@
     <input type="text" name="title" value="${dto.title}" readonly>
 </div>
 <div>
-    <input type="date" name="dueDate" value="${dto.dueDate}">
+    <input type="date" name="dueDate" value="${dto.dueDate}" readonly>
 </div>
 <div>
     <input type="checkbox" name="finished" ${dto.finished ? "checked": ""} readonly >

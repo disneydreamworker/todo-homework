@@ -20,14 +20,14 @@ public enum TodoService {
 
 
     public TodoVO selectOne(long tno) throws Exception {
-        return null;
+        return dao.selectOne(tno);
     }
 
     public void deleteOne(Long tno) throws Exception {
-
+        dao.deleteOne(tno);
     }
 
     public void updateOne(TodoVO vo) throws Exception {
-
+        dao.updateOne(vo);
     }
 }
